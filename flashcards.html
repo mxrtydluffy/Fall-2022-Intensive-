@@ -22,12 +22,30 @@
     </header>
     <div class="container">
         <div class="create_flashcard">
-            <!-- Decided to add text-align for create flashcard because I don't want
-            everything to shift -->
+            <!-- Added text-align to create flashcard because I don't want
+            everything to shift. Beneath here is where the user the types the term. -->
             <h2 style="text-align: center;">Create Flashcard</h2>
+            <label for="term">Term</label>
+            <!-- Added textarea so the user has more space to write on.
+                Deleted "name," "cols," and "rows" in textarea because we're going
+                to be using CSS for the format. -->
+            <textarea id="question" ></textarea>
+            
+            <br>
 
-
+            <!-- Here is where the user types the definition. -->
+            <label for="definition">Definition</label>
+            <textarea id="definition"></textarea>
+            
+            <!-- Another section so user can save written information-->
+            <div>
+                <button onclick="addFlashcard">Save</button>
+                <button onclick="hideCreateflashcardbox">Dismiss</button>
+            </div>
         </div>
+        <!-- This is where the flashcards will be displayed. -->
+        <div class="flashcards"></div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
