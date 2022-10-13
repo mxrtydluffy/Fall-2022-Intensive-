@@ -33,7 +33,7 @@ button{
     cursor: pointer;
     border: 1px solid silver;
     border-radius: 5px;
-    background-color: sandybrown;
+    background-color: white; /* White/sandybrown can be good too */
 }
 
 button:hover{
