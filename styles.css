@@ -1,0 +1,114 @@
+/* Since the asterisk (*) is CSS universal selector, its helpful
+to select all elemetns to have zero margins and padding */
+
+/* The box-sizing property helps to incorporate the padding and border when 
+the width and height of the element is already set. Border box will help save lines of code */
+
+/* Embbed font from another source */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+/* Did more research and found out inputting avalible fonts from other websites is an option if
+don't want to utilize built in fonts. */
+
+/* CSS rule to specify families*/
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    background-color: peachpuff;
+}
+
+header{
+    background-color: lightsalmon;
+}
+
+button{
+    padding: 8px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: sandybrown;
+}
+
+button:hover{
+    background-color: rgb(0, 0, 0, 0.1);
+}
+
+.container{
+    width: 95%;
+    margin: auto;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    padding: 20px 0;
+    background-color: lightsalmon;
+}
+
+.nav button{
+    font-family: inherit;
+}
+
+.create-flashcard{
+    width: 380px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: peachpuff;
+    box-shadow: 0 2px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.create-flashcard textarea{
+    width: 100;
+    border-radius: 5px;
+    font-family: inherit;
+    border: 1px solid lightgray;
+}
+
+.create-flashcard button{
+    width: fit-content;
+}
+
+/* For saved flashcards, use flexbox inorder to be displayed.
+    - Flex start will begin to display flashcard beginning from the left.
+    - Flex-wrap makes the webpage more responsive if need to make more adjustments.
+    For example: Not in fullscreen can adjust window size. */
+
+.flashcards{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+/* Giving demensions */
+
+/* word-wrap: break-word will help the flashcard to break long words/sentences
+into seperate lines. */
+
+.flashcards{
+    width: 370px;
+    height: 200px;
+    word-wrap: break-word;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(0, 0, 0, 0.5);
+}
+
+.flashcards h2{
+    font-size: 1rem;
+}
