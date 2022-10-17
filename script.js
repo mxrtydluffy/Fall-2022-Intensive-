@@ -5,10 +5,10 @@
 */
 
 const flashcard = document.getElementsByClassName
-("flashcards")[0];
+("flashcard")[0];
 const createBox = document.getElementsByClassName
-("create-box")[0];
-const term = document.getElementById("term");
+("create-flashcards")[0];
+const term = document.getElementById("question");
 const definition = document.getElementById("definition");
 
 // Creating array which will store data
@@ -23,14 +23,7 @@ const definition = document.getElementById("definition");
 let contentArray = localStorage.getItem('items') ?
 JSON.parse(localStorage.getItem('items')) : [];
 
-// Deletes flashcards
-/* Empty string "''" */
-function deleteFlashcards(){
-    localStorage.clear();
-    flashcard.innerHTML = '';
-    contentArray = [];
-}
-
+// Need function as soon project is run because we need to re-add flashcards to the screen
 contentArray.forEach(divMaker)
 // Adding new flashcards to file
 function divMaker(text){
@@ -41,6 +34,26 @@ function divMaker(text){
     // Adding flashcard style from CSS
     div.className = 'flashcard';
 
+    h2_question.setAttribute('style', "border-top:1px solid red; padding : 15px; margin-1top:30px");
+
+    h2_question.innerHTML = text.my_question;
+
+    h2_answer.setAttribute("style", "text-align:center; display:none; color:red");
+    h2_answer.innerHTML = text.my_answer;
+
+    div.appendChild(h2_question);
+    div.appendChild(h2_answer);
+
+    // This event listener helps prevent seeing the answer from the screen
+    div.addEventListener("click", function(){
+        if(h2_answer.style.display == "none")
+            h2_answer.style.display = "block";
+        else
+        h2_answer.style.display = "none";
+    });
+
+    // Adding div element to flashcards container
+    flashcard.appendChild(div);
 }
 
 function displayFlashcard(){
@@ -52,16 +65,25 @@ function displayFlashcard(){
     //storing user input in dictionary
     contentArray.push(flashcard_info);
     localStorage.setItem,('items', JSON.stringify(contentArray));
-    divMaker(contentArray[contentArray.length - 1])
+    divMaker(contentArray[contentArray.length - 1]);
     question.value = '';
     answer.value = '';
 }
 
-// Making "Create Flashcard" dissapear inorder to review
-function hideCreateflashcard(){
-    createBox.style.display = "block";
+// Deletes flashcards
+/* Empty string "''" */
+function deleteFlashcards(){
+    localStorage.clear();
+    flashcard.innerHTML = '';
+    contentArray = [];
 }
 
+// Making "Create Flashcard" dissapear inorder to review
+function hideCreateflashcard(){
+    createBox.style.display = "none";
+}
+
+// Saving "Create Flashcard"
 function showCreateflashcard(){
-    createBox.style.display = "show";
+    createBox.style.display = "block";
 }

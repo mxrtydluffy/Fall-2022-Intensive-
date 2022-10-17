@@ -15,14 +15,14 @@
                 <div>
                     <!-- Calling function "onclick" which will display and delete
                         the flashcard -->
-                    <button onclick="displayflashcard()">Add Card</button>
+                    <button onclick="displayflashcard()">Add Card</button>      <!--showcreatecardBox-->
                     <button onclick="deleteflashcard()">Delete Card</button>
                 </div>
             </div>
         </div>
     </header>
     <div class="container">
-        <div class="create-flashcard">
+        <div class="create-flashcard">  <!--Create-box-->
             <!-- Added text-align to create flashcard because I don't want
             everything to shift. Beneath here is where the user the types the term. -->
             <h2 style="text-align: center;">Create Flashcard</h2>
@@ -30,7 +30,7 @@
             <!-- Added textarea so the user has more space to write on.
                 Deleted "name," "cols," and "rows" in textarea because we're going
                 to be using CSS for the format. -->
-            <textarea id="question" ></textarea>
+            <textarea id="term" ></textarea>
             
             <br>
 
@@ -40,8 +40,8 @@
             
             <!-- Another section so user can save written information-->
             <div>
-                <button onclick="addFlashcard">Save</button>
-                <button onclick="hideCreateflashcardbox">Dismiss</button>
+                <button onclick="addFlashcard()">Save</button>
+                <button onclick="hideCreateflashcardbox()">Dismiss</button>
             </div>
         </div>
         <!-- This is where the flashcards will be displayed. -->
