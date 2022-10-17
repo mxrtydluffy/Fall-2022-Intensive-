@@ -4,11 +4,11 @@
     - input boxes (Term & Definition) text areas
 */
 
-const flashcard = document.getElementsByClassName
-("flashcard")[0];
-const createBox = document.getElementsByClassName
-("create-flashcards")[0];
-const term = document.getElementById("question");
+const flashcards = document.getElementsByClassName
+("flashcards")[0];
+const createflashcard = document.getElementsByClassName
+("create-flashcard")[0];
+const term = document.getElementById("term");
 const definition = document.getElementById("definition");
 
 // Creating array which will store data
@@ -24,15 +24,15 @@ let contentArray = localStorage.getItem('items') ?
 JSON.parse(localStorage.getItem('items')) : [];
 
 // Need function as soon project is run because we need to re-add flashcards to the screen
-contentArray.forEach(divMaker)
+contentArray.forEach(divMaker);
 // Adding new flashcards to file
 function divMaker(text){
-    var div = document.createElement
+    var div = document.createElement("div");
     var h2_question = document.createElement("h2");
     var h2_answer = document.createElement("h2");
 
     // Adding flashcard style from CSS
-    div.className = 'flashcard';
+    div.className = 'flashcards';
 
     h2_question.setAttribute('style', "border-top:1px solid red; padding : 15px; margin-1top:30px");
 
@@ -53,10 +53,11 @@ function divMaker(text){
     });
 
     // Adding div element to flashcards container
-    flashcard.appendChild(div);
+    flashcards.appendChild(div);
 }
 
-function displayFlashcard(){
+"Save button"
+function addflashcard(){
     var flashcard_info = {
         'my_question' : question.value,
         'my_answer' : answer.value
@@ -71,19 +72,20 @@ function displayFlashcard(){
 }
 
 // Deletes flashcards
-/* Empty string "''" */
-function deleteFlashcards(){
+/* Empty string "''" 
+"Delete Card" */
+function deleteflashcard(){
     localStorage.clear();
-    flashcard.innerHTML = '';
+    flashcards.innerHTML = '';
     contentArray = [];
 }
 
-// Making "Create Flashcard" dissapear inorder to review
-function hideCreateflashcard(){
-    createBox.style.display = "none";
+// Saving "Create Flashcard" || "Add Card"
+function displayflashcard(){
+    createBox.style.display = "block";
 }
 
-// Saving "Create Flashcard"
-function showCreateflashcard(){
-    createBox.style.display = "block";
+// Making "Create Flashcard" disapear inorder to review || "Dismiss"
+function hideCreateflashcard(){
+    createBox.style.display = "none";
 }
