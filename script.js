@@ -24,68 +24,69 @@ let contentArray = localStorage.getItem('items') ?
 JSON.parse(localStorage.getItem('items')) : [];
 
 // Need function as soon project is run because we need to re-add flashcards to the screen
-contentArray.forEach(divMaker);
+contentArray.forEach(divMaker)
+
 // Adding new flashcards to file
 function divMaker(text){
-    var div = document.createElement("div");
-    var h2_question = document.createElement("h2");
-    var h2_answer = document.createElement("h2");
+    const div = document.createElement("div");
+    const h2_term = document.createElement("h2");
+    const h2_definition = document.createElement("h2");
 
-    // Adding flashcard style from CSS
-    div.className = 'flashcards';
+    // Adding flashcard style from CSS to give features
+    div.className = 'flashcard';
 
-    h2_question.setAttribute('style', "border-top:1px solid red; padding : 15px; margin-1top:30px");
+    h2_term.setAttribute('style', "border-top:1px solid red; padding: 15px; margin-top:30px");
 
-    h2_question.innerHTML = text.my_question;
+    h2_term.innerHTML = text.my_term;
 
-    h2_answer.setAttribute("style", "text-align:center; display:none; color:red");
-    h2_answer.innerHTML = text.my_answer;
+    h2_definition.setAttribute("style", "text-align:center; display:none; color:red");
+    h2_definition.innerHTML = text.my_definition;
 
-    div.appendChild(h2_question);
-    div.appendChild(h2_answer);
+    div.appendChild(h2_term);
+    div.appendChild(h2_definition);
 
     // This event listener helps prevent seeing the answer from the screen
     div.addEventListener("click", function(){
-        if(h2_answer.style.display == "none")
-            h2_answer.style.display = "block";
+        if(h2_definition.style.display == "none")
+            h2_definition.style.display = "block";
         else
-        h2_answer.style.display = "none";
+        h2_definition.style.display = "none";
     });
 
     // Adding div element to flashcards container
     flashcards.appendChild(div);
 }
 
-"Save button"
-function addflashcard(){
-    var flashcard_info = {
-        'my_question' : question.value,
-        'my_answer' : answer.value
+// "Save button"
+function addFlashcard(){
+    const flashcard_info = {
+        'my_term' : term.value,
+        'my_definition' : definition.value
     }
 
     //storing user input in dictionary
     contentArray.push(flashcard_info);
     localStorage.setItem,('items', JSON.stringify(contentArray));
     divMaker(contentArray[contentArray.length - 1]);
-    question.value = '';
-    answer.value = '';
+    term.value = '';
+    definition.value = '';
 }
 
-// Deletes flashcards
+// Deletes "Create Flashcard"
 /* Empty string "''" 
 "Delete Card" */
-function deleteflashcard(){
+function deleteFlashcard(){
     localStorage.clear();
     flashcards.innerHTML = '';
     contentArray = [];
 }
 
 // Saving "Create Flashcard" || "Add Card"
-function displayflashcard(){
-    createBox.style.display = "block";
+function displayFlashcard(){
+    createflashcard.style.display = "block";
 }
 
 // Making "Create Flashcard" disapear inorder to review || "Dismiss"
 function hideCreateflashcard(){
-    createBox.style.display = "none";
+    createflashcard.style.display = "none";
 }

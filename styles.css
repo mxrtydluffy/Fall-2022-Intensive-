@@ -8,8 +8,8 @@ the width and height of the element is already set. Border box will help save li
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
 *{
-    padding: 0%;
-    margin: 0%;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -69,7 +69,7 @@ button:hover{
 }
 
 .create-flashcard textarea{
-    width: 100;
+    width: 100%;
     border-radius: 5px;
     font-family: inherit;
     border: 1px solid lightgray;
@@ -89,7 +89,7 @@ button:hover{
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 100;
+    width: 100%;
     margin: auto;
     margin-top: 10px;
     padding: 0 10px;
@@ -100,7 +100,7 @@ button:hover{
 /* word-wrap: break-word will help the flashcard to break long words/sentences
 into seperate lines. */
 
-.flashcards{
+.flashcard{
     width: 370px;
     height: 200px;
     word-wrap: break-word;
@@ -109,6 +109,6 @@ into seperate lines. */
     box-shadow: 0 2px 4px 0 rgb(0, 0, 0, 0.5);
 }
 
-.flashcards h2{
+.flashcard h2{
     font-size: 1rem;
 }
